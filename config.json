@@ -16,7 +16,7 @@
     "highlightjs_language": "javascript"
   },
   "test_runner": {
-    "average_run_time": 5.0
+    "average_run_time": 5
   },
   "files": {
     "solution": ["%{kebab_slug}.js"],
@@ -169,7 +169,7 @@
           "array-destructuring",
           "array-transformations"
         ],
-        "status": "wip"
+        "status": "beta"
       },
       {
         "slug": "coordinate-transformation",
@@ -901,7 +901,12 @@
         "name": "Scale Generator",
         "uuid": "b9c586e8-998b-4f5d-ab98-a08be29a9f19",
         "practices": [],
-        "prerequisites": [],
+        "prerequisites": [
+          "classes",
+          "arrays",
+          "strings",
+          "array-transformations"
+        ],
         "difficulty": 3,
         "topics": ["loops", "pattern_recognition", "strings", "arrays"]
       },
@@ -926,7 +931,13 @@
         "name": "Largest Series Product",
         "uuid": "1f84305d-ea76-4fe2-9858-3b53576d683d",
         "practices": [],
-        "prerequisites": [],
+        "prerequisites": [
+          "strings",
+          "numbers",
+          "errors",
+          "conditionals",
+          "array-transformations"
+        ],
         "difficulty": 7,
         "topics": [
           "conditionals",
@@ -943,8 +954,8 @@
         "name": "Transpose",
         "uuid": "9c140fb7-cc8b-411b-b613-a0e0081a9c3f",
         "practices": [],
-        "prerequisites": [],
-        "difficulty": 1,
+        "prerequisites": ["arrays", "for-loops", "strings", "conditionals"],
+        "difficulty": 3,
         "topics": [
           "arrays",
           "lists",
@@ -1051,9 +1062,8 @@
         "name": "House",
         "uuid": "a8b7187d-12eb-4efc-b966-87823654ccda",
         "practices": [],
-        "prerequisites": [],
-        "difficulty": 4,
-        "topics": ["arrays", "conditionals", "loops", "recursion", "strings"]
+        "prerequisites": ["for-loops", "arrays", "strings"],
+        "difficulty": 4
       },
       {
         "slug": "isbn-verifier",

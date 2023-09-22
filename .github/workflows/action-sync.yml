@@ -12,11 +12,11 @@ jobs:
     steps:
       - name: 'Post acknowledgement that it will sync exercises'
         continue-on-error: true # Never fail the build if this fails
-        uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
+        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            github.issues.createComment({
+            github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -34,7 +34,7 @@ jobs:
         id: fork_status
         run: |
           IS_FORK="$(jq '.head.repo.fork' "/tmp/pr.json")"
-          echo "::set-output name=fork::$IS_FORK"
+          echo "fork=$IS_FORK" >> "$GITHUB_OUTPUT"
 
       - name: 'Setup SSH deploy key'
         if: steps.fork_status.outputs.fork == 'false'
@@ -84,11 +84,11 @@ jobs:
 
       - name: 'Post acknowledgement that it has synced the code'
         continue-on-error: true # Never fail the build if this fails
-        uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
+        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            github.issues.createComment({
+            github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -98,11 +98,11 @@ jobs:
       - name: 'Post reminder to trigger build manually'
         continue-on-error: true # Never fail the build if this fails
         if: steps.fork_status.outputs.fork == 'true'
-        uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
+        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            github.issues.createComment({
+            github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,

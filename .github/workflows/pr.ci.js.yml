@@ -11,12 +11,12 @@ jobs:
 
     steps:
       - name: Checkout PR
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac
 
-      - name: Use Node.js LTS (16.x)
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+      - name: Use Node.js LTS (18.x)
+        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d
         with:
-          node-version: '16'
+          node-version: '18'
 
       - name: Install project dependencies
         run: npm ci
@@ -33,14 +33,14 @@ jobs:
 
     strategy:
       matrix:
-        node-version: ['16', '17', '18']
+        node-version: ['18', '20']
 
     steps:
       - name: Checkout PR
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d
         with:
           node-version: ${{ matrix.node-version }}
 

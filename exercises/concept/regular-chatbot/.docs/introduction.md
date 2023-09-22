@@ -73,7 +73,7 @@ These are some of the most common functions used alongside regex.
 
 ### Test
 
-The [test()][mdn-regex-test]] method executes a search for a match between a regular expression and a specified string. Returns true or false.
+The [test()][mdn-regex-test] method executes a search for a match between a regular expression and a specified string. Returns true or false.
 
 ```javascript
 const str = 'It is difficult to test if you have a virus';
@@ -97,7 +97,7 @@ const regex1 = /someone/;
 const regex2 = /happy/;
 
 funnyQuote.match(regex1);
-// => ["someone", index: 3, input: "If you see someone crying, ask if it is because of their haircut.", groups: undefined]
+// => ["someone", index: 11, input: "If you see someone crying, ask if it is because of their haircut.", groups: undefined]
 
 funnyQuote.match(regex2);
 // => null
